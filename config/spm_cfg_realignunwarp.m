@@ -204,7 +204,7 @@ pmscan.help    = {
     'phase correction. The vdm* file is assumed to be already in alignment ' ...
     'with the first scan of the first session.']}';
 pmscan.filter  = 'image';
-pmscan.ufilter = '^vdm5_.*';
+pmscan.ufilter = '^vdm5.*';
 pmscan.num     = [0 1];
 pmscan.val     = {''};
 pmscan.preview = @(f) spm_image('Display',char(f));
@@ -462,7 +462,7 @@ fot.help    = {
     'Otherwise enter a customised set of movements to model'
     }';
 fot.strtype = 'n';
-fot.num     = [1 Inf];
+fot.num     = [Inf Inf];
 fot.def     = @(val)spm_get_defaults('unwarp.estimate.foe', val{:});
 
 %--------------------------------------------------------------------------
@@ -526,7 +526,7 @@ noi         = cfg_entry;
 noi.tag     = 'noi';
 noi.name    = 'Number of Iterations';
 noi.help    = {'Maximum number of iterations.'};
-noi.strtype = 'n';
+noi.strtype = 'w';
 noi.num     = [1 1];
 noi.def     = @(val)spm_get_defaults('unwarp.estimate.noi', val{:});
 
