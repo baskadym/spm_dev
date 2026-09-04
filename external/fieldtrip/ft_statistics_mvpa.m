@@ -482,9 +482,9 @@ for mm = 1:numel(cfg.mvpa.metric)
     end
 
     if numel(cfg.mvpa.metric)>1
-      siz = size(result.perf{mm});
+      siz = [size(result.perf{mm}) 1];
     else
-      siz = size(result.perf);
+      siz = [size(result.perf) 1];
     end
     nrep   = siz(1);
     nfold  = siz(2);
@@ -511,7 +511,7 @@ for mm = 1:numel(cfg.mvpa.metric)
       trialinfo = [vecrep vecfold lab];
       trialinfo = array2table(trialinfo, 'VariableNames', {'repetition' 'fold' 'testlabel'});
     else
-      trialinfo = array2table(result.testlabel, 'VariableNames', {'testlabel'});
+      trialinfo = array2table(result.testlabel(:), 'VariableNames', {'testlabel'});
     end
 
     if numel(cfg.mvpa.metric)>1
